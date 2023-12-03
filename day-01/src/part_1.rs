@@ -9,26 +9,11 @@ fn part1(input: &str) -> u32 {
     output
 }
 
-fn replace_written_digits(original: String) -> String {
-    let replaced = original
-        .replace("one", "o1e")
-        .replace("two", "t2o")
-        .replace("three", "t3e")
-        .replace("four", "f4r")
-        .replace("five", "f5e")
-        .replace("six", "s6x")
-        .replace("seven", "s7n")
-        .replace("eight", "e8t")
-        .replace("nine", "n9e");
-    dbg!(replaced)
-}
-
 fn process_line(line: &str) -> u32 {
-    let replaced = replace_written_digits(line.to_string());
     let mut first_digit = None;
     let mut last_digit = None;
     let mut number: String = "".to_string();
-    for ch in replaced.chars() {
+    for ch in line.chars() {
         if ch.is_digit(10) {
             last_digit = Some(ch);
             if first_digit.is_none() {
@@ -49,14 +34,11 @@ mod tests {
     #[test]
     fn test_process() {
         let result = part1(
-            "two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen",
+            "1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet"
         );
-        assert_eq!(result, 281);
+        assert_eq!(result, 142);
     }
 }
