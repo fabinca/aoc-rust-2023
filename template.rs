@@ -9,7 +9,7 @@ fn part1(input: &str) -> String {
     output
 }
 
-fn process_line(&str) -> u32 {
+fn process_line(line: &str) -> u32 {
     todo!()
 }
 
