@@ -51,9 +51,9 @@ fn part2(contents: &str) -> u32 {
     let results: Vec<u32> = contents.lines().map(process_line).collect();
     let mut counts: Vec<u32> = vec![1; results.len()];
     let mut j: usize = 0;
-    for (idx, res) in results.iter().take(results.len() - 1).enumerate() {
+    for (_, res) in results.iter().take(results.len() - 1).enumerate() {
         j += 1;
-        for k in 0..counts[j-1] {
+        for _ in 0..counts[j-1] {
             for i in 0..*res as usize {
                 counts[i + j] += 1;
             }
